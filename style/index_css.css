@@ -32,9 +32,11 @@ hr {
 }
 .navbar a:hover {
 	background-color: rgba(232, 74, 39, 0.8);
+	transition: background 0.6s;
 }
 .selected {
 	background-color: rgb(232, 74, 39);
+	transition: background 0.6s;
 }
 
 .titleImage {
@@ -57,14 +59,11 @@ hr {
 .fa {
 	margin-right: 20px;
     padding: 20px;
-    font-size: 30px !important;
-    width: 30px;
+    font-size: 25px !important;
+    width: 25px;
     text-align: center;
     text-decoration: none;
 	border-radius: 50%;
-}
-.fa:hover {
-    opacity: 1;
 }
 .fa-facebook {
 	color: white;
