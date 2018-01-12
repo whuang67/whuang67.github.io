@@ -17,25 +17,32 @@ hr {
 
 .navbar {
 	overflow: hidden;
-	background-color: rgba(59, 89, 152, 0.9);
+	background-color: rgb(59, 89, 152);
 	position: fixed;
 	top: 0;
 	min-width: inherit;
 	width: inherit;
 }
-.navbar a {
+
+.navbar button {
+	border: none;
+	background-color: inherit;
 	float: left;
+	font-weight: bold;
+	letter-spacing: 0.5px;
 	text-align: center;
 	text-decoration: none;
 	padding: 18px 18px;
 	color: white;
+	cursor: pointer;
 }
-.navbar a:hover {
+.navbar button:hover {
 	background-color: rgba(232, 74, 39, 0.8);
 	transition: background 0.6s;
 }
+
 .selected {
-	background-color: rgb(232, 74, 39);
+	background-color: rgb(232, 74, 39) !important;
 	transition: background 0.6s;
 }
 
@@ -83,4 +90,11 @@ hr {
 	color: white;
 	padding: 5px 10px;
 	margin-top: 25px;
+}
+
+
+#moreNewsBtn, #lessNewsBtn {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
 }
