@@ -1,78 +1,59 @@
-var homeBtn = document.getElementById("home");
-var homePanel = document.getElementById("homePanel");
-var aboutMeBtn = document.getElementById("aboutMe");
-var aboutMePanel = document.getElementById("aboutMePanel");
-var sampleWorkBtn = document.getElementById("sampleWork");
-var sampleWorkPanel = document.getElementById("sampleWorkPanel");
-var contactBtn = document.getElementById("contact");
-var contactPanel = document.getElementById("contactPanel");
-
-var moreNewsBtn = document.getElementById("moreNewsBtn");
-var lessNewsBtn = document.getElementById("lessNewsBtn");
-var moreNews = document.querySelectorAll(".moreNews");
-
-
-homeBtn.addEventListener("click", function(){
-	this.classList.add("selected");
-	aboutMeBtn.classList.remove("selected");
-	sampleWorkBtn.classList.remove("selected");
-	contactBtn.classList.remove("selected");
+$("#home").click(function(){
+	$(this).addClass("selected");
+	$("#aboutMe").removeClass("selected");
+	$("#sampleWork").removeClass("selected");
+	$("#contact").removeClass("selected");
 	
-	homePanel.style.display = "block";
-	aboutMePanel.style.display = "none";
-	sampleWorkPanel.style.display = "none";
-	contactPanel.style.display = "none";
+	$("#homePanel").css("display", "block");
+	$("#aboutMePanel").css("display", "none");
+	$("#sampleWorkPanel").css("display", "none");
+	$("#contactPanel").css("display", "none");
 });
 
-aboutMeBtn.addEventListener("click", function(){
-	homeBtn.classList.remove("selected");
-	this.classList.add("selected");
-	sampleWorkBtn.classList.remove("selected");
-	contactBtn.classList.remove("selected");
+$("#aboutMe").click(function(){
+	$("#home").removeClass("selected");
+	$(this).addClass("selected");
+	$("#sampleWork").removeClass("selected");
+	$("#contact").removeClass("selected");
 	
-	homePanel.style.display = "none";
-	aboutMePanel.style.display = "block";
-	sampleWorkPanel.style.display = "none";
-	contactPanel.style.display = "none";
+	$("#homePanel").css("display", "none");
+	$("#aboutMePanel").css("display", "block");
+	$("#sampleWorkPanel").css("display", "none");
+	$("#contactPanel").css("display", "none");
 });
 
-sampleWorkBtn.addEventListener("click", function(){
-	homeBtn.classList.remove("selected");
-	aboutMeBtn.classList.remove("selected");
-	this.classList.add("selected");
-	contactBtn.classList.remove("selected");
+$("#sampleWork").click(function(){
+	$("#home").removeClass("selected");
+	$("#aboutMe").removeClass("selected");
+	$(this).addClass("selected");
+	$("#contact").removeClass("selected");
 	
-	homePanel.style.display = "none";
-	aboutMePanel.style.display = "none";
-	sampleWorkPanel.style.display = "block";
-	contactPanel.style.display = "none";
+	$("#homePanel").css("display", "none");
+	$("#aboutMePanel").css("display", "none");
+	$("#sampleWorkPanel").css("display", "block");
+	$("#contactPanel").css("display", "none");
 });
 
-contactBtn.addEventListener("click", function(){
-	homeBtn.classList.remove("selected");
-	aboutMeBtn.classList.remove("selected");
-	sampleWorkBtn.classList.remove("selected");
-	this.classList.add("selected");
+$("#contact").click(function(){
+	$("#home").removeClass("selected");
+	$("#aboutMe").removeClass("selected");
+	$("#sampleWork").removeClass("selected");
+	$(this).addClass("selected");
 	
-	homePanel.style.display = "none";
-	aboutMePanel.style.display = "none";
-	sampleWorkPanel.style.display = "none";
-	contactPanel.style.display = "block";
+	$("#homePanel").css("display", "none");
+	$("#aboutMePanel").css("display", "none");
+	$("#sampleWorkPanel").css("display", "none");
+	$("#contactPanel").css("display", "block");
 });
 
-
-moreNewsBtn.addEventListener("click", function(){
-	this.style.display = "none";
-	lessNewsBtn.style.display = "block";
-	for(var i = 0; i < moreNews.length; i++){
-		moreNews[i].style.display = "list-item";
-	}
+$("#moreNewsBtn").click(function(){
+	$(this).addClass("notShowing");
+	$(".moreNews").removeClass("notShowing");
+	$("#lessNewsBtn").removeClass("notShowing");
 });
 
-lessNewsBtn.addEventListener("click", function(){
-	this.style.display = "none";
-	moreNewsBtn.style.display = "block";
-	for(var i = 0; i < moreNews.length; i++){
-		moreNews[i].style.display = "none";
-	}
+$("#lessNewsBtn").click(function(){
+	$("#moreNewsBtn").removeClass("notShowing");
+	$(".moreNews").addClass("notShowing");
+	$(this).addClass("notShowing");
 });

@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Wenke Huang - Univ. of IL</title>
-  <link rel="stylesheet" type="text/css" href="style/index_css.css">
+  <link rel="stylesheet" type="text/css" href="styles/index_css.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
 </head>
 
 <body>
-
   <nav class="navbar">
     <button id="home" class="selected">Home</button>
 	<button id="aboutMe">About Me</button>
@@ -15,12 +15,18 @@
 	<button id="contact">Contact</button>
   </nav>
   
-  <h1>Wenke Huang
-    <a href="https://illinois.edu" target="_blank"><img src="images/uiuc_logo.jpg" class="titleImage"></a>
-  </h1>
+  <div class="left-column">
+    <img src="images/wenkehuang.png" style="width: 200px;">
+    <h1>Wenke Huang</h1>
+	<br>
+    <a href="https://illinois.edu" target="_blank"><img src="images/uiuc_logo.jpg" class="titleImage"></a> <br>
+	<a href="https://illinois.edu" target="_blank"><img src="images/cmb_logo.jpg" class="titleImage"></a> <br>
+	<a href="https://illinois.edu" target="_blank"><img src="images/shufe_logo.jpg" class="titleImage"></a> <br>
+  </div>
   
   <div id="homePanel">
     <div>
+	  <h3>Greetings!</h3>
       <p>Hi there! I am Wenke Huang, a master graduate from the <a href="https://illinois.edu" target="_blank">University of Illinois at Urbana-Champaign</a> currently located in Champaign-Urbana, Illinois. I joined the University in January 2016, and obtained my MSc in Statistics in December 2017. I'm interested in taking the skills that I have learned and applying them to data analysis field.</p>
       <p>I am working or have worked in the following areas:</p>
       <ul>
@@ -28,7 +34,6 @@
 	    <li>Statistical Tests and Forecasting</li>
 	    <li>Machine Learning, Deep Learning and Pattern Recognition</li>
 	    <li>Website Development and Software Engineering</li>
-	    <li>...</li>
       </ul>
 	  <p>Outside of work and study, I enjoy spending my time playing table tennis with my friends. If you happen to be a chopper as well, I would absolutely love to have a artistic match with you! :)</p>
 	  <hr>
@@ -42,19 +47,18 @@
 	    <li><strong>08/2017:</strong> I started working as a Graduate Assistant for the <em>School of Information Sciences</em> at the University of Illinois under the supervision of Professor Vetle I. Torvik.</li>
 	    <li><strong>06/2017:</strong> I began assisting the summer school course <em>STAT 420 Methods of Applied Statistics</em> supervised by senior instructor David Unger.</li>
         <li><strong>11/2016:</strong> I became a SAS Certified Advanced Programmer for SAS 9: <em>AP019106v9</em>.</li>
-	    <li id="moreNewsBtn" style="display: block;">More</li>
-	    <li class="moreNews" style="display: none;"><strong>10/2016:</strong> I got my certification of SAS Certified Base Programmer for SAS 9: <em>BP064362v9</em>.</li>
-	    <li class="moreNews" style="display: none;"><strong>01/2016:</strong> I started pursuing my Master of Science degree in Statistics at the University of Illinois at Urbana-Champaign.</li>
-	    <li id="lessNewsBtn" style="display: none;">Less</a></li>
+	    <li id="moreNewsBtn">More</li>
+	    <li class="moreNews notShowing"><strong>10/2016:</strong> I got my certification of SAS Certified Base Programmer for SAS 9: <em>BP064362v9</em>.</li>
+	    <li class="moreNews notShowing"><strong>01/2016:</strong> I started pursuing my Master of Science degree in Statistics at the University of Illinois at Urbana-Champaign.</li>
+	    <li id="lessNewsBtn" class="notShowing">Less</a></li>
 	  </ul>
     </div>
   </div>
   
-  
   <div id="aboutMePanel" style="display: none;">
     <div>
-      <h3>Bio</h3>
-      <p>My name is Wenke Huang. I completed my Master of Science in Statistics at the <a href="https://illinois.edu" target="_blank">University of Illinois at Urbana-Champaign</a>, and obtained my Bachelor's Degree in Statistics from <a href="http://www.shufe.edu.cn/" target="_blank">Shanghai University of Finance and Economics</a>. </p>
+      <h3>Biography</h3>
+      <p>My name is Wenke Huang. I completed my Master of Science Degree in Statistics at the <a href="https://illinois.edu" target="_blank">University of Illinois at Urbana-Champaign</a>, and obtained my Bachelor's Degree in Statistics from <a href="http://www.shufe.edu.cn/" target="_blank">Shanghai University of Finance and Economics</a>. </p>
       <p>I am specialized in Data Science, Statistics, Machine Learning and Website Development. I enjoy drowning in data and discovering stories behind it. </p>
 	  <hr>
     </div>
@@ -114,9 +118,9 @@
     <div>
       <h3>Skills</h3>
 	  <ul>
-	    <li>Python, R, SAS, SQL, HTML/CSS, JavaScript, TensorFlow</li>
+	    <li>Java, Python, R, SAS, SQL, HTML/CSS, JavaScript, TensorFlow</li>
 	    <li>ggplot2, matplotlib, Tableau</li>
-	    <li>Applied Regression, Machine Learning, Deep Learning, Time Series, Data Mining, Statistical Consulting, A/B Test</li>
+	    <li>Applied Regression, Data Structure, Machine Learning, Deep Learning, Time Series, Data Mining, Statistical Consulting, A/B Test</li>
 	  </ul>
     </div>
   
@@ -125,7 +129,11 @@
   
   <div id="sampleWorkPanel" style="display: none;">
     <div>
-      <p>Here are some interesting sample works of data science and website applications that I have worked on in the past with their brief introductions. Website Applications are mainly coded by using R Shiny, HTML/CSS and JavaScript while Data Science projects are generally about R, Python, SAS and SQL.</p>
+	  <h3>Introduction</h3>
+      <p>Here are some interesting sample works of data science and website applications that I have worked on in the past with their brief descriptions.</p>
+	  <ul>
+	    <li class="previousExperience"><strong>Website Apps:</strong> R Shiny, HTML5/CSS and JavaScript (including JQuery)
+	    <li class="previousExperience"><strong>Data Science:</strong> R, Python (including TensorFlow), SAS and SQL/NoSQL
       <hr>
     </div>
   
@@ -230,10 +238,11 @@
   
   <br>
   <br>
-  <div>
-    <p style="height: 0;">Last updated on January 12, 2018</p>
+  <div id="footer">
+    <p style="margin: 0 0 0 310px;">Last updated on January 13, 2018</p>
+	<div></div>
   </div>
-  <div id="footer"></div>
+  
   <script type="text/javascript" src="js/index_script.js"></script>
 </body>
 </html>

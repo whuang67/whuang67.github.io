@@ -1,11 +1,12 @@
 body {
 	min-width: 700px;
-	width: 70%;
-	margin: 20px auto 0px auto;
-	padding: 20px 20px 0px 20px;
-	border: 20px solid white /*#BDC3C7*/;
+	margin: 80px 0 0 0;
 	border-bottom: 0px;
 }
+div[id=homePanel], div[id=aboutMePanel], div[id=sampleWorkPanel], div[id=contactPanel] {
+	margin: 0 180px 0 310px;
+}
+
 hr {
     border: 0;
     height: 2px;
@@ -20,8 +21,11 @@ hr {
 	background-color: rgb(59, 89, 152);
 	position: fixed;
 	top: 0;
+	width: 100%;
+	margin: 0;
 	min-width: inherit;
-	width: inherit;
+	height: 50px;
+	text-align: center
 }
 
 .navbar button {
@@ -36,6 +40,9 @@ hr {
 	color: white;
 	cursor: pointer;
 }
+.navbar button:first-of-type {
+	margin-left: 310px;
+}
 .navbar button:hover {
 	background-color: rgba(232, 74, 39, 0.8);
 	transition: background 0.6s;
@@ -47,10 +54,10 @@ hr {
 }
 
 .titleImage {
-	height: 40px;
-	width: auto;
-	float: right;
-	margin: 0 2px;
+	height: auto;
+	width: 100px;
+	/* float: right; */
+	margin: 10px 0 0 0;
 }
 .previousExperience {
 	list-style: none;
@@ -59,9 +66,8 @@ hr {
 	float: right;
 }
 .position {
-	padding-left: 0;
+    padding-left: 0;
 }
-
 
 .fa {
 	margin-right: 20px;
@@ -88,13 +94,25 @@ hr {
 #footer {
 	background-color: rgba(59, 89, 152, 0.9);
 	color: white;
-	padding: 5px 10px;
-	margin-top: 25px;
+	padding: 5px 0;
+	letter-spacing: 0.5px; 
 }
-
 
 #moreNewsBtn, #lessNewsBtn {
 	color: blue;
 	text-decoration: underline;
 	cursor: pointer;
+	list-style: none;
+}
+.notShowing {
+	display: none;
+}
+
+
+.left-column {
+	margin-top: 10px;
+	position: fixed;
+	float: left;
+	width: 310px;
+	text-align: center;
 }
