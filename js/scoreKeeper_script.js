@@ -12,9 +12,9 @@ $("#playerOne").on("click", function(){
             $("#firstRecord").css("display", "none");
 			gameOver = true;
 			playerOneWin++;
-			$("#p1Display").css("color", "green");
-			$(".results").append("<li>"+(playerOneWin+playerTwoWin)+". <strong>Player 1</strong> won!</li>");
-			$("h3 span").text(playerOneWin+":"+playerTwoWin);
+			$("#p1Display").css("color", "red");
+			$(".results").append("<li>Round "+(playerOneWin+playerTwoWin)+": <strong>Player 1</strong> won!</li>");
+			$("h3 span").text(playerOneWin+" to "+playerTwoWin);
 		}
 		$("#p1Display").text(playerOneScore);
 	} else {
@@ -28,9 +28,9 @@ $("#playerTwo").on("click", function(){
 			$("#firstRecord").css("display", "none");
 			gameOver = true;
 			playerTwoWin++;
-			$("#p2Display").css("color", "green");
-			$(".results").append("<li>"+(playerOneWin+playerTwoWin)+". <strong>Player 2</strong> won!</li>");
-			$("h3 span").text(playerOneWin+":"+playerTwoWin);
+			$("#p2Display").css("color", "red");
+			$(".results").append("<li>Round "+(playerOneWin+playerTwoWin)+": <strong>Player 2</strong> won!</li>");
+			$("h3 span").text(playerOneWin+" to "+playerTwoWin);
 		}
 		$("#p2Display").text(playerTwoScore);
 	} else {
@@ -46,8 +46,8 @@ function reset(){
 	playerTwoScore = 0;
 	$("#p1Display").text(0);
 	$("#p2Display").text(0);
-	$("#p1Display").css("color", "black");;
-	$("#p2Display").css("color", "black");;
+	$("#p1Display").css("color", "white");;
+	$("#p2Display").css("color", "white");;
 }
 $("#reset").on("click", reset);
 
