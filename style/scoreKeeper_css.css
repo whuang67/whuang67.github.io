@@ -21,9 +21,9 @@ h3:nth-of-type(2) {
 div p:first-of-type {
 	font-weight: bold;
 }
-#space {
+.space {
 	display: inline-block;
-	width: 10%;
+	width: 6%;
 }
 #container {
 	width: 360px;
