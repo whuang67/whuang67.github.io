@@ -8,12 +8,12 @@
 
 <body>
 
-  <header class="navbar">
+  <nav class="navbar">
     <button id="home" class="selected">Home</button>
 	<button id="aboutMe">About Me</button>
-	<button id="sampleWork">Sample Work</button>
+	<button id="sampleWork">Sample Works</button>
 	<button id="contact">Contact</button>
-  </header>
+  </nav>
   
   <h1>Wenke Huang
     <a href="https://illinois.edu" target="_blank"><img src="images/uiuc_logo.jpg" class="titleImage"></a>
@@ -126,33 +126,45 @@
   <div id="sampleWorkPanel" style="display: none;">
     <div>
       <p>Here are some interesting sample works of data science and website applications that I have worked on in the past with their brief introductions. Website Applications are mainly coded by using R Shiny, HTML/CSS and JavaScript while Data Science projects are generally about R, Python, SAS and SQL.</p>
+      <hr>
     </div>
   
     <div>
       <h3>Website Applications</h3>
       <ul>
+	    <li class="previousExperience" style="padding-bottom: 5px"><a href="score-keeper.html" target="_blank"><strong>Web Develop:</strong> Score Keeper</a></li>
+	    <ul>
+		  <li><strong>Target Score:</strong> The default value is 5. You may also type in a user-defned one.</li>
+		  <li><strong>How to Win:</strong> The first player who reach the target score first win the game.</li>
+		  <li><strong>Reset:</strong> Click <em>RESET</em> to reset the game. When you change the target score, game will be reset automatically.</li>
+		  <li><strong>Records:</strong> The previous game results and total score are recorded. You can clear the record by refreshing the page only.</li>
+		</ul>
+	    <hr class="hrNone">
+	    
 	    <li class="previousExperience" style="padding-bottom: 5px"><a href="todo-list.html" target="_blank"><strong>Web Develop:</strong> To Do List</a></li>
 	    <ul>
-		  <li><strong>Adding</strong>: Type in the next event into the "<i>Add New Todo</i>" area and then click the "+" sign.</li>
-		  <li><strong>Removing</strong>: Click the "trash can" sign in front of an event to remove it.</li>
-		  <li><strong>Erasing</strong>: Click the event to erase an event temporarily, and re-click to cancel it.</li>
+		  <li><strong>Adding:</strong> Type in the next event into the "<i>Add New Todo</i>" area and then click the "+" sign.</li>
+		  <li><strong>Removing:</strong> Click the "trash can" sign in front of an event to remove it.</li>
+		  <li><strong>Erasing:</strong> Click the event to erase an event temporarily, and re-click to cancel it.</li>
 		</ul>
 	    <hr class="hrNone">
-	    <li class="previousExperience" style="padding-bottom: 5px"><a href="color-game.html" target="_blank"><strong>Web Develop:</strong> Color Game</a></li>
+	    
+		<li class="previousExperience" style="padding-bottom: 5px"><a href="color-game.html" target="_blank"><strong>Web Develop:</strong> Color Game</a></li>
 	    <ul>
-		  <li><strong>How to Win</strong>: The goal of this game is to find out the color that the RGB code represents.</li>
-		  <li><strong>Easy/Hard</strong>: There will be 3 and 6 choices in Easy and Hard versions, respectively.</li>
-		  <li><strong>Incorrect Selection</strong>: The wrong color square will disappear after being clicked if it is not the correct one.</li>
-		  <li><strong>Reset</strong>: Click the "<i>NEW COLORS</i>" to reset the game, and you will get 3 or 6 new colors and 1 new target color.</li>
+		  <li><strong>How to Win:</strong> The goal of this game is to find out the color that the RGB code represents.</li>
+		  <li><strong>Easy/Hard:</strong> There will be 3 and 6 choices in Easy and Hard versions, respectively.</li>
+		  <li><strong>Incorrect Selection:</strong> The wrong color square will disappear after being clicked if it is not the correct one.</li>
+		  <li><strong>Reset:</strong> Click "<i>NEW COLORS</i>" to reset the game, and you will get 3 or 6 new colors and 1 new target color.</li>
 		</ul>
 	    <hr class="hrNone">
-	    <li class="previousExperience" style="padding-bottom: 5px"><a href="https://wenkehuang.shinyapps.io/443_3/" target="_blank"><strong>Data Science Consulting:</strong> Air Pollution in Shanghai - Analyses and Predictions</a></li>
+	    
+		<li class="previousExperience" style="padding-bottom: 5px"><a href="https://wenkehuang.shinyapps.io/443_3/" target="_blank"><strong>Data Science Consulting:</strong> Air Pollution in Shanghai - Analyses and Predictions</a></li>
 	    <ul>
-	      <li><strong>Login</strong>: Both username and password are <i style="text-decoration: underline">group5</i>.</li>
-		  <li><strong>Visualization</strong>: Different plots are shown when different variables are selected. Lower y limits are suggested due to outliers.</li>
-		  <li><strong>Prediction</strong>: Upload a csv file containing the weather information of the next 24 hours to make predictions.</li>
-		  <li><strong>Sample File</strong>: Click <a href="docs/test.csv" download>here</a> to download a sample csv file. Files used in the <strong>Prediction</strong> part must follow its format.</li>
-		  <li><strong>Calculator</strong>: Typing in and selecting values of corresponding variables manually can also provide predictions.</li>
+	      <li><strong>Login:</strong> Both username and password are <i style="text-decoration: underline">group5</i>.</li>
+		  <li><strong>Visualization:</strong> Different plots are shown when different variables are selected. Lower y limits are suggested due to outliers.</li>
+		  <li><strong>Prediction:</strong> Upload a csv file containing the weather information of the next 24 hours to make predictions.</li>
+		  <li><strong>Sample File:</strong> Click <a href="docs/test.csv" download>here</a> to download a sample csv file. Files used in the <strong>Prediction</strong> part must follow its format.</li>
+		  <li><strong>Calculator:</strong> Typing in and selecting values of corresponding variables manually can also provide predictions.</li>
 		</ul>
 	  </ul>
 	  <hr>
@@ -169,21 +181,24 @@
 		  <li>Built a Shiny website application to help client educate the public and make future PM 2.5 predictions</li>
 		</ul>
 	    <hr class="hrNone">
-	    <li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-Python/tree/master/CS412" target="_blank"><strong>Data Mining:</strong> KDD Conference Paper Analysis</a></li>
+	    
+		<li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-Python/tree/master/CS412" target="_blank"><strong>Data Mining:</strong> KDD Conference Paper Analysis</a></li>
 	    <ul>
 		  <li>Extracted authors of each paper, converted raw KDD papers into a matrix of TF-IDF features, and reduced dimensionality</li>
 		  <li>Applied DBSCAN algorithm to group papers into different clusters and perform outlier detection</li>
 		  <li>Performed Apriori algorithm to discover frequent patterns and association rules between different authors</li>
 		</ul>
 	    <hr class="hrNone">
-	    <li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-R/tree/master/STAT427" target="_blank"><strong>Consulting:</strong> Tickets Redemption Rate Analysis</a></li>
+	    
+		<li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-R/tree/master/STAT427" target="_blank"><strong>Consulting:</strong> Tickets Redemption Rate Analysis</a></li>
 	    <ul>
 		  <li>Imputed missing values of variable "Capacity" by applying regression method</li>
 		  <li>Fit logistic regression and decision tree models, summarized the results from different models</li>
 		  <li>Built a Shiny website application to help summarize data visualization and variable correlationship</li>
 		</ul>
 	    <hr class="hrNone">
-	    <li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-R/tree/master/STAT542" target="_blank"><strong>Statistical Learning:</strong> Allstate Claims Severity</a></li>
+	    
+		<li class="previousExperience"><a href="https://github.com/whuang67/STAT-in-R/tree/master/STAT542" target="_blank"><strong>Statistical Learning:</strong> Allstate Claims Severity</a></li>
 	    <ul>
 		  <li>Performed feature selection by building LASSO and Random Forest models, and dimensionality reduction using PCA</li>
 		  <li>Predicted variable “loss” using parametric (Linear Regression, LASSO) and non-parametric (Random Forest) methods</li>
@@ -207,7 +222,7 @@
     <div>
       <h3>Contact Information</h3>
 	  <p>I am best reached via email: <a href="mailto: huangwk223@gmail.com">huangwk223@gmail.com</a></p>
-	  <p>Nail mails may NOT find me currently.</p>
+	  <p>Snail mails may not find me currently.</p>
 	  <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d10117.435525845136!2d-88.23312503437332!3d40.10478079071474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sus!4v1513409531595" width="300" height="225" frameborder="0" style="border:0" allowfullscreen></iframe>
     </div>
   </div>

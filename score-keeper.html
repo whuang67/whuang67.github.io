@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Score Keeper</title>
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="style/scoreKeeper_css.css">
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.js"></script>
+</head>
+
+<body>
+  <div id="container">
+    <h1>
+      <span id="p1Display">0</span>
+	  to 
+	  <span id="p2Display">0</span>
+    </h1>
+    <div>
+      <p>Playing to <span>5</span></p>
+      <p><input type="number" placeholder="or type in a new target here"></input></p>
+    </div>
+  
+    <div>
+      <button id="playerOne" class="btn btn-primary">Player One</button>
+      <button id="playerTwo" class="btn btn-success">Player Two</button>
+	  <span id="space"></span>
+	  <button id="reset" class="btn btn-default">Reset</button>
+    </div>
+  
+    <div>
+      <h3>Previous Results: <span>0:0</span></h3>
+      <ul class="results" style="text-align: center">
+	    <li id="firstRecord">0. No previous record.</li>
+	  </ul>
+    </div>
+  </div>
+  <script src="js/scoreKeeper_script.js"></script>
+</body>
+
+
+</html>
+
