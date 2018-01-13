@@ -1,2 +1,2 @@
 # Welcome to Wenke Huang's Homepage
-Please kindly click [here](https://whuang67.github.io), or copy and paste the URL: https://whuang67.github.io into your internet browser.
+Please kindly click [here](http://www.WenkeHuang.com), or copy and paste the URL: http://www.WenkeHuang.com into your internet browser.
