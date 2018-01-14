@@ -112,7 +112,6 @@ hr {
 
 
 .left-column {
-	position: fixed;
 	float: left;
 	min-width: 290px;
 	width: 25%;
