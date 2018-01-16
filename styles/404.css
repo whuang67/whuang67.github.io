@@ -1,0 +1,17 @@
+body, html {
+	background: rgb(19, 41, 75);
+	height: 100%;
+	margin: 0;
+	font-family: "Arial Black";
+	color: white;
+}
+a {
+	font-size: 150%;
+}
+.container {
+	text-align: center;
+}
+.error {
+	font-size: 30px;
+	margin-top: 5%;
+}
