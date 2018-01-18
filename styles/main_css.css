@@ -1,0 +1,44 @@
+body {
+	font-family: serif;
+}
+.nav-link {
+	color: white !important;
+	font-weight: 700;
+}
+.container {
+	margin-top: 20px;
+}
+.fa {
+	margin-right: 20px;
+	padding: 20px;
+	font-size: 20px;
+	width: 60px;
+	border-radius: 50%;
+}
+.fa-facebook {
+	color: white;
+	background: #3B5998;
+}
+.fa-linkedin {
+	color: white;
+	background: #007BB5;
+}
+.fa-github {
+	color: white;
+	background: black;
+}
+
+.date {
+	float: right;
+}
+.noBulletPoint {
+	list-style: none;
+}
+.position {
+	padding-left: 0;
+}
+#moreNewsBtn, #lessNewsBtn {
+	color: blue;
+	text-decoration: underline;
+	cursor: pointer;
+}
