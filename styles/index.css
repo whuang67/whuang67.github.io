@@ -1,0 +1,65 @@
+body {
+  background-image: url("../images/almaMater.jpg");
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	color: RGB(19, 41, 75);
+	font-size: 14px;
+}
+a, #email, #usps, #more {
+	font-weight: 500;
+	color: RGB(19, 41, 75);
+}
+/* #about, #code, #appointment, #education, #contact */
+.head {
+	font-weight: 500;
+	font-size: 28px;
+	text-align: center;
+}
+.proj, .company {
+	font-weight: bold;
+}
+.more-proj {
+	display: none;
+}
+.duration {
+	float: right;
+}
+.dept {
+	font-style: italic;
+	text-decoration: underline;
+	position: relative;
+	display: inline-block;
+}
+.container {
+	max-width: 850px;
+	background-color: RGBA(225, 225, 234, 0.8);
+	border-radius: 15px;
+	margin: 30px auto;
+	padding: 15px 30px 5px 30px;
+}
+.location {
+	margin-left: 10px;
+	padding: 2px;
+}
+#footer {
+	background-color: RGBA(19, 41, 75, 0.6);
+	color: RGB(225, 225, 234);
+	padding: 0 20px;
+}
+.fa {
+	font-size: 20px;
+}
+.TA + span, #email + span {
+	visibility: hidden;
+	background-color: RGB(225, 225, 234);
+	border: 1px solid #131F33;
+	padding: 1px 5px;
+	margin-left: 5px;
+	border-radius: 10px;
+	z-index: 1;
+	position: absolute;
+}

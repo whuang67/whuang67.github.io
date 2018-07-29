@@ -8,74 +8,8 @@
 	<title>Wenke Huang - UCLA</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	<style>
-	body {
-		background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Alma_Mater%2C_Lorado_Taft.jpg/1280px-Alma_Mater%2C_Lorado_Taft.jpg");
-		background-attachment: fixed;
-		background-repeat: no-repeat;
-		-webkit-background-size: cover;
-		-moz-background-size: cover;
-		-o-background-size: cover;
-		background-size: cover;
-		color: RGB(19, 41, 75);
-		font-size: 14px;
-	}
-	a, #email, #usps, #more {
-		font-weight: 500;
-		color: RGB(19, 41, 75);
-	}
-	/* #about, #code, #appointment, #education, #contact */
-	.head {
-		font-weight: 550;
-		font-size: 28px;
-		text-align: center;
-	}
-	.proj, .company {
-		font-weight: bold;
-	}
-	.more-proj {
-		display: none;
-	}
-	.duration {
-		float: right;
-	}
-	.dept {
-		font-style: italic;
-		text-decoration: underline;
-		position: relative;
-		display: inline-block;
-	}
-	.container {
-		max-width: 900px;
-		background-color: RGBA(225, 225, 234, 0.8);
-		border-radius: 15px;
-		margin: 30px auto;
-		padding: 15px 30px 5px 30px;
-	}
-	.location {
-		margin-left: 10px;
-		padding: 2px;
-	}
-	#footer {
-		background-color: RGBA(19, 41, 75, 0.6);
-		color: RGB(225, 225, 234);
-		padding: 0 20px;
-	}
-	.fa {
-		font-size: 20px;
-	}
-	.TA + span, #email + span {
-		visibility: hidden;
-		background-color: RGB(225, 225, 234);
-		border: 1px solid #131F33;
-		padding: 1px 5px;
-		margin-left: 5px;
-		border-radius: 10px;
-		z-index: 1;
-		position: absolute;
-	}
-	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="styles/index.css">
 </head>
 
 <body>
@@ -90,7 +24,7 @@
 	</div>
 	<div>
 		<div class="head">About</div>
-		<p>Hi! I'm Wenke Huang, a Statistician of the <a href="https://healthpolicy.ucla.edu/Pages/home.aspx">Center for Health Policy Research</a> at the <a href="http://www.ucla.edu">University of California, Los Angeles</a>. I joined the Center in Mar. 2018 after obtaining my MSc in <a href="https://stat.illinois.edu">Statistics</a> from the <a href="https://illinois.edu">University of Illinois at Urbana-Champaign</a> in Dec. 2017.</p>
+		<p>Hi! I'm Wenke Huang, a <a href="http://healthpolicy.ucla.edu/about/staff/pages/detail.aspx?StaffID=1537">Statistician</a> of the <a href="https://healthpolicy.ucla.edu/Pages/home.aspx">Center for Health Policy Research</a> at the <a href="http://www.ucla.edu">University of California, Los Angeles</a>. I joined the Center in Mar. 2018 after obtaining my MSc in <a href="https://stat.illinois.edu">Statistics</a> from the <a href="https://illinois.edu">University of Illinois at Urbana-Champaign</a> in Dec. 2017.</p>
 		<p>My current responsiblities include preparing <a href="http://healthpolicy.ucla.edu/chis/Pages/default.aspx">California Health Interview Survey</a> (CHIS) data, maintaining Center's internal R packages and web apps, and providing statistical support to resarchers. I'm also developing an R package <a href="https://github.com/whuang67/surveyfreq">surveyfreq</a> with C++ concentrating on survey analysis now. I myself am a big fan of open sources R, Python and JavaScript while at the same time holding four SAS certifications.</p>
 		<p>Outside of work and study, I enjoy playing ping-pong with my friends. I was also a member of <a href="http://www.chncka.org/">Chinese Karatedo Association</a> and <a href="http://jks.jp/">Japan Karate Shoto Federation</a> and retired in 2015.</p>
 	</div>
@@ -137,7 +71,11 @@
 	<div>
 		<div><span class="company">University of California, Los Angeles</span><span class="location">Los Angeles, CA</span></div>
 		<ul>
-			<li><span class="position">Statistician</span> @ <span class="dept">Center for Health Policy Research</span><span class="duration">03/2018 - Present</span></li>
+			<li>
+				<span>Statistician @ </span>
+				<span class="dept">Center for Health Policy Research</span>
+				<span class="duration">03/2018 - Present</span>
+			</li>
 			<ul>
 				<li>California Health Interview Survey</li>
 				<li>Helping design and maintain web applications for internal usage</li>
@@ -148,13 +86,13 @@
 		<div><span class="company">University of Illinois at Urbana-Champaign</span><span class="location">Urbana-Champaign, IL</span></div>
 		<ul>
 			<li>
-				<span class="position">Graduate Assistant</span> @ 
+				<span>Graduate Assistant @ </span>
 				<span class="dept TA">School of Information Sciences</span>
 				<span>IS542 - Data, Statistical Models and Information<br>IS590DT - Data Mining</span>
 				<span class="duration">08/2017 - 12/2017</span>
 			</li>
 			<li>
-				<span class="position">Grader</span> @ 
+				<span>Grader @ </span>
 				<span class="dept TA">Department of Statistics</span>
 				<span>STAT420 - Methods of Applied Statistics</span>
 				<span class="duration">06/2017 - 08/2017</span>
@@ -163,7 +101,11 @@
 				<li>Managed weekly office hour and helped students with course materials and R programming</li>
 				<li>Graded students’ weekly assignments and offered detailed individual feedback</li>
 			</ul>
-			<li><span class="position">Research Assistant</span> @ <span class="dept">Department of Finance</span><span class="duration">03/2017 - 08/2017</span></li>
+			<li>
+				<span>Research Assistant @ </span>
+				<span class="dept">Department of Finance</span>
+				<span class="duration">03/2017 - 08/2017</span>
+			</li>
 			<ul>
 				<li>Web-scraped and wrangled datasets from raw TXT, XML and HTML files</li>
 				<li>Helped process datasets, debugged and optimized code, built statistical model, etc</li>
@@ -175,94 +117,56 @@
 	<div class="container">
 	<div class="head">Education</div>
 	<div>
-		<div><span class="company">University of Illinois at Urbana-Champaign</span><span class="location">Urbana-Champaign, IL</span></div>
-		<ul><li><span class="position">Master of Science, Statistics</span><span class="duration">01/2016 - 12/2017</span></li></ul>
+		<div>
+			<span class="company">University of Illinois at Urbana-Champaign</span>
+			<span class="location">Urbana-Champaign, IL</span>
+		</div>
+		<ul>
+			<li>
+				<span>Master of Science, </span>
+				<span class="dept">Statistics</span>
+				<span class="duration">01/2016 - 12/2017</span>
+			</li>
+		</ul>
 	</div>
 
 	<div>
-		<div><span class="company">Shanghai University of Finance and Economics</span><span class="location">Shanghai, China</span></div>
-		<ul><li><span class="position">Bachelor's degree, Statistics</span><span class="duration">09/2010 - 07/2014</span></li></ul>
+		<div>
+			<span class="company">Shanghai University of Finance and Economics</span>
+			<span class="location">Shanghai, China</span>
+		</div>
+		<ul>
+			<li>
+				<span>Bachelor's degree, </span>
+				<span class="dept">Statistics</span>
+				<span class="duration">09/2010 - 07/2014</span>
+			</li>
+		</ul>
 	</div>
 	</div>
 	
 	<div class="container">
 		<div class="head">Contact</div>
-		<div><a href="https://github.com/whuang67"><i class="fa fa-github"></i> /whuang67</a></div>
-		<div><a href="https://linkedin.com/in/wenkehuang"><i class="fa fa-linkedin"></i> /wenkehuang</a></div>
-		<div><span id="email"><i class="fa fa-at"></i> /huangwk223 AT gmail DOT com</span><span>Email address is saved to Clipboard!</span></div>
-		<div><span id="usps"><i class="fa fa-envelope"></i> /Snail mails</span> will also find me:</div>
-		<p style="font-style: italic; padding-left: 15px;">10960 Wilshire Boulevard, Suite 1550</br>Los Angeles, CA 90024</br>United States of America</p>
-
+		<div class="row">
+			<div class="col">
+				<div><a href="https://github.com/whuang67"><i class="fa fa-github"></i> /whuang67</a></div>
+				<div><a href="https://linkedin.com/in/wenkehuang"><i class="fa fa-linkedin"></i> /wenkehuang</a></div>
+				<div><span id="email"><i class="fa fa-at"></i> /huangwk223 AT gmail DOT com</span><span>Email address is saved to Clipboard!</span></div>
+			</div>
+			<div class="col">
+				<div><span id="usps"><i class="fa fa-envelope"></i> /Snail mails</span> will also find me:</div>
+				<p style="font-style: italic; padding-left: 15px;">10960 Wilshire Boulevard, Suite 1550<br>Los Angeles, CA 90024<br>United States of America</p>
+			</div>
+		</div>
 	</div>
 	</div>
 	
 	<div id="footer" class="container-fluid">
 		<div class="row">
-			<div class="col-12 col-md-8">The background is the Alma Mater statue (1929, Lorado Taft) at the great Univ. of Illinois, my alma mater.</div>
+			<div class="col-12 col-md-8">The background is the Alma Mater statue (1929, Lorado Taft) at the Univ. of Illinois.</div>
 			<div class="col-6 col-md-4" style="text-align: right;">Last updated on July 28th, 2018</div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		function mouseOver2(e){
-			e.css({
-				"cursor": "pointer",
-				"text-decoration-line": "underline",
-				"color": "RGB(50, 132, 191)"
-			});
-		}
-		function mouseLeave2(e){
-			e.css({
-				"cursor": "auto",
-				"text-decoration-line": "none",
-				"color": "RGB(19, 41, 75)"
-			});
-			// For #usps, nothing is following so the following step won't run.
-		}
-		function mouseLeaveDisappear(e){
-			e.next().delay(1950).queue(function(next){
-				$(this).css("visibility", "hidden");
-				next();
-			});
-		}
-		$("a").attr("target", "_blank");
-		
-		console.log("Greetings travelor!");		
-		
-		$("#email").hover(function(){
-			mouseOver2($(this));
-		}, function(){
-			mouseLeave2($(this));
-			mouseLeaveDisappear($(this));
-		}).click(function(){
-			var $tmp=$("<input>"), replaceMap = {" /":"", " AT ":"@", " DOT ":"."};
-			$("body").append($tmp);
-			$tmp.val($(this).text().replace(/ \/| AT | DOT /g, function(m){
-				return replaceMap[m];
-			})).select();
-			document.execCommand("copy");
-			$tmp.remove();
-			$(this).next().css("visibility", "visible");
-		});
-
-		$(".TA").hover(function(){
-			$(this).css("cursor", "pointer").next().css("visibility", "visible");
-		}, function(){
-			$(this).css("cursor", "auto").next().css("visibility", "hidden");
-		});
-		
-		$("a, #usps, #more").hover(function(){
-			mouseOver2($(this));
-		}, function(){
-			mouseLeave2($(this));
-		});
-		
-		$("#more").click(function(){
-			$(".more-proj").removeClass("more-proj");
-			$(this).css("display", "none").removeAttr("id", "more").next().css({
-				"font-weight": "500",
-				"color": "RGB(19, 41, 75)"
-			});
-		});
-	</script>
+	<script type="text/javascript" src="js/index.js"></script>
 </body>
 </html>
