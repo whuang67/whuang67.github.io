@@ -14,7 +14,7 @@ function mouseLeave2(e){
 	// For #usps, nothing is following so the following step won't run.
 }
 function mouseLeaveDisappear(e){
-	e.next().delay(1950).queue(function(next){
+	e.next().delay(2000).queue(function(next){
 		$(this).css("visibility", "hidden");
 		next();
 	});
@@ -57,4 +57,19 @@ $("#more").click(function(){
 		"font-weight": "500",
 		"color": "RGB(19, 41, 75)"
 	});
+});
+
+window.onscroll = function(){
+  if($(document).scrollTop()>50){
+    $("#back-to-top").fadeIn(1000);
+  } else{
+    $("#back-to-top").fadeOut(1000);
+  }
+};
+$("#back-to-top").hover(function(){
+  $(this).css("cursor", "pointer");
+}, function(){
+  $(this).css("cursor", "auto");
+}).click(function(){
+  $(document).animate({scrollTop: 0}, 500);
 });

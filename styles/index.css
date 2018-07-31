@@ -6,12 +6,12 @@ body {
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
-	color: RGB(19, 41, 75);
+	color: rgb(19, 41, 75);
 	font-size: 14px;
 }
 a, #email, #usps, #more {
 	font-weight: 500;
-	color: RGB(19, 41, 75);
+	color: rgb(19, 41, 75);
 }
 /* #about, #code, #appointment, #education, #contact */
 .head {
@@ -36,7 +36,7 @@ a, #email, #usps, #more {
 }
 .container {
 	max-width: 850px;
-	background-color: RGBA(225, 225, 234, 0.8);
+	background-color: rgba(225, 225, 234, 0.8);
 	border-radius: 15px;
 	margin: 30px auto;
 	padding: 15px 30px 5px 30px;
@@ -46,20 +46,30 @@ a, #email, #usps, #more {
 	padding: 2px;
 }
 #footer {
-	background-color: RGBA(19, 41, 75, 0.6);
-	color: RGB(225, 225, 234);
+	background-color: rgba(19, 41, 75, 0.6);
+	color: rgb(225, 225, 234);
 	padding: 0 20px;
 }
-.fa {
+.fab, .fas {
 	font-size: 20px;
 }
 .TA + span, #email + span {
 	visibility: hidden;
-	background-color: RGB(225, 225, 234);
+	background-color: rgb(225, 225, 234);
 	border: 1px solid #131F33;
 	padding: 1px 5px;
 	margin-left: 5px;
 	border-radius: 10px;
 	z-index: 1;
 	position: absolute;
+}
+
+#back-to-top {
+  position: fixed;
+  left: 10vw;
+  bottom: 7vw;
+  background-color: rgb(225, 225, 234);
+  border: 1px solid rgba(19, 41, 75, 0.6);
+  border-radius: 5px;
+  display: none;
 }
