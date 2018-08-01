@@ -67,9 +67,10 @@ window.onscroll = function(){
   }
 };
 $("#back-to-top").hover(function(){
-  $(this).css("cursor", "pointer");
+  $(this).css("cursor", "pointer").find("i").css("display", "none").next().fadeIn(500);
 }, function(){
-  $(this).css("cursor", "auto");
+  $(this).css("cursor", "auto").find("div.back-to-top2").css("display", "none").prev().fadeIn(500);
 }).click(function(){
-  $(document).animate({scrollTop: 0}, 500);
+  //console.log($(document).scrollTop());
+  $("html").animate({scrollTop: 0}, $(document).scrollTop()*2/3);
 });

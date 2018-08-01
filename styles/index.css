@@ -73,3 +73,10 @@ a, #email, #usps, #more {
   border-radius: 5px;
   display: none;
 }
+.back-to-top2 {
+   position: absolute;
+   left: 50%; 
+   top: 50%; 
+   transform: translate(-50%, -50%); 
+   color: rgba(19, 41, 75, 0.6);
+}
