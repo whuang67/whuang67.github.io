@@ -59,18 +59,22 @@ $("#more").click(function(){
 	});
 });
 
-window.onscroll = function(){
-  if($(document).scrollTop()>50){
-    $("#back-to-top").fadeIn(1000);
-  } else{
-    $("#back-to-top").fadeOut(1000);
-  }
-};
-$("#back-to-top").hover(function(){
-  $(this).css("cursor", "pointer").find("i").css("display", "none").next().fadeIn(500);
-}, function(){
-  $(this).css("cursor", "auto").find("div.back-to-top2").css("display", "none").prev().fadeIn(500);
-}).click(function(){
-  //console.log($(document).scrollTop());
-  $("html").animate({scrollTop: 0}, $(document).scrollTop()*2/3);
-});
+//if(!navigator.userAgent.match(/(iPad|iPhone|iPod|Android|Blackberry)/)){
+  window.onscroll = function(){
+    if($(document).scrollTop()>50){
+      $("#back-to-top").fadeIn(1000);
+    } else{
+      $("#back-to-top").fadeOut(1000);
+    }
+  };
+  $("#back-to-top").hover(function(){
+    $(this).css("cursor", "pointer").find("i").css("display", "none").next().fadeIn(500);
+  }, function(){
+    $(this).css("cursor", "auto").find("div.back-to-top2").css("display", "none").prev().fadeIn(500);
+  }).click(function(){
+    //console.log($(document).scrollTop());
+    $("html, body").animate({scrollTop: 0}, $(document).scrollTop()*2/3);
+  });
+//} else {
+//  console.log("\"Back to top\" button is not working on mobile devices currently. Sorry about the inconvenience!");
+//}
