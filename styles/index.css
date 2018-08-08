@@ -16,7 +16,7 @@ a, #email, #usps, #more {
 /* #about, #code, #appointment, #education, #contact */
 .head {
 	font-weight: 500;
-	font-size: 28px;
+	font-size: 30px;
 	text-align: center;
 }
 .proj, .company {
@@ -66,7 +66,7 @@ a, #email, #usps, #more {
 
 #back-to-top {
   position: fixed;
-  left: 10vw;
+  right: 10vw;
   bottom: 7vw;
   background-color: rgb(225, 225, 234);
   border: 1px solid rgba(19, 41, 75, 0.6);
