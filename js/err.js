@@ -10,12 +10,13 @@ function timer(){
   }
 }
 
-var initLength = $("div:first-of-type").children().length;
+// To make sure the message only show once
+const initLength = $("div:first-of-type").children().length;
 $(document).on("keypress click", function(){
   // or using a dictionary
   clearInterval(counter);
   if($("div.container").children().length===initLength){
-    // I remember that D3.js instead of jQjuery prefers the layout below, but it's more organized and readable.
+
     $("div.container")
       .append($("<span id='auto-disappear'>The countdown has been stopped. Will not redirect to Wenke's <a href='https://github.com/whuang67'><i class='fab fa-github'></i> GitHub</a> page automatically.</span>")
         .css({
@@ -31,7 +32,7 @@ $(document).on("keypress click", function(){
       .delay(5000)
       .queue(function(next){
         $(this).children().last().css("visibility", "hidden");
-        // Choose not to remove because of the IF statement at the start (make sure only run onces)
+        // Choose not to remove because of the IF statement at the start (make sure only run ONLY once)
         next();
       });
   }

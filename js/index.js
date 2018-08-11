@@ -19,24 +19,42 @@ function mouseLeaveDisappear(e){
 		next();
 	});
 }
+function swapDict(d){
+  var out = {};
+  for(var key in d){
+    out[d[key]] = key;
+  }
+  return out;
+}
 $("a").attr("target", "_blank");
 
-console.log("Greetings travelor!");		
+const replaceMap = {" /":"", " AT ":"@", " DOT ":"."},
+      reverseReplaceMap = swapDict(replaceMap);
 
 $("#email").hover(function(){
 	mouseOver2($(this));
 }, function(){
 	mouseLeave2($(this));
 	mouseLeaveDisappear($(this));
+	$(this).delay(4000).queue(function(next){
+	  $(this).html($(this).html().replace(/@|\./, function(m){
+	    return reverseReplaceMap[m];
+	  }));
+	  next();
+	});
+
 }).click(function(){
-	var $tmp=$("<input>"), replaceMap = {" /":"", " AT ":"@", " DOT ":"."};
+	var $tmp=$("<input>");
+
 	$("body").append($tmp);
 	$tmp.val($(this).text().replace(/ \/| AT | DOT /g, function(m){
-		return replaceMap[m];
+	  return replaceMap[m];
 	})).select();
 	document.execCommand("copy");
 	$tmp.remove();
-	$(this).next().css("visibility", "visible");
+	$(this).html($(this).html().replace(/ AT | DOT /g, function(m){
+	  return replaceMap[m];
+	})).next().css("visibility", "visible");
 });
 
 $(".TA").hover(function(){
