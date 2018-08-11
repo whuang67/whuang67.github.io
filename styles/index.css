@@ -1,11 +1,12 @@
 body {
-  background-image: url("../images/almaMater.jpg");
+  background-image: url("../images/mainQuad.jpg");
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
 	background-size: cover;
+	height: 100%;
 	color: rgb(19, 41, 75);
 	font-size: 14px;
 }

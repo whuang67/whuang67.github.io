@@ -59,9 +59,9 @@ $("#more").click(function(){
 	});
 });
 
-//if(!navigator.userAgent.match(/(iPad|iPhone|iPod|Android|Blackberry)/)){
+if(!navigator.userAgent.match(/(iPad|iPhone|iPod|Android|Blackberry)/)){
   window.onscroll = function(){
-    if($(document).scrollTop()>50){
+    if($(document).scrollTop()>100){
       $("#back-to-top").fadeIn(1000);
     } else{
       $("#back-to-top").fadeOut(1000);
@@ -75,6 +75,6 @@ $("#more").click(function(){
     //console.log($(document).scrollTop());
     $("html, body").animate({scrollTop: 0}, $(document).scrollTop()*2/3);
   });
-//} else {
-//  console.log("\"Back to top\" button is not working on mobile devices currently. Sorry about the inconvenience!");
-//}
+} else {
+  // console.log("Hello my mobile device friend!");
+}
