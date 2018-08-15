@@ -29,7 +29,7 @@ function swapDict(d){
 $("a").attr("target", "_blank");
 
 // There seems to be some bad/unnecessary escaping, which are useful for later regex use.
-const replaceMap = {" \/":"", " AT ":"@", " DOT ":"\."},
+const replaceMap = {" AT ":"@", " DOT ":"\."},
       reverseReplaceMap = swapDict(replaceMap);
 
 $("#email").hover(function(){
@@ -38,7 +38,7 @@ $("#email").hover(function(){
 	mouseLeave2($(this));
 	mouseLeaveDisappear($(this));
 	$(this).delay(4000).queue(function(next){
-	  $(this).html($(this).html().replace(/@|\./g, function(m){
+	  $(this).html(" " + $(this).html().replace(/@|\./g, function(m){
 	    return reverseReplaceMap[m];
 	  }));
 	  next();
@@ -48,11 +48,12 @@ $("#email").hover(function(){
 	var $tmp=$("<input>");
 
 	$("body").append($tmp);
-	$tmp.val($(this).text().replace(/ \/| AT | DOT /g, function(m){
+	$tmp.val($(this).text().replace(/ AT | DOT /g, function(m){
 	  return replaceMap[m];
-	})).select();
+	}).trim()).select();
 	document.execCommand("copy");
 	$tmp.remove();
+	
 	$(this).html($(this).html().replace(/ AT | DOT /g, function(m){
 	  return replaceMap[m];
 	})).next().css("visibility", "visible");

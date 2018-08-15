@@ -11,7 +11,8 @@ function timer(){
 }
 
 // To make sure the message only show once
-const initLength = $("div:first-of-type").children().length;
+const initLength = $("div.container").children().length;
+
 $(document).on("keypress click", function(){
   // or using a dictionary
   clearInterval(counter);
