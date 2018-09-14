@@ -1,7 +1,7 @@
 var count=0, countDict={};
 const languages = {"SAS": "Good choice!", "R": "Good choice!", "Py-Numpy": "Python Numpy", "Py-TF": "Python TensorFlow", "Stata": "I highly recommend R, Python or SAS instead!", "SPSS": "Good luck!"};
 function addVar(){
-	$("#field").append("<div id=\"var"+count+"\" class=\"varChunk\"><select class=\"selected\"><option disabled selected> -- Select an option -- </option><option value=\"A\">Collapse</option><option value=\"B\">Categorize</option><option value=\"C\">Up/Bottom Coding</option></select><div class=\"codes\"></div><input class=\"removeVar\" type=\"button\" value=\"Remove this variable\"></div>");
+	$("#field").append("<div id=\"var"+count+"\" class=\"varChunk\"><select class=\"selected\"><option disabled selected> -- Select an option -- </option><option value=\"A\">Collapse</option><option value=\"B\">Categorize</option><option value=\"C\">Up/Bottom Code</option></select><div class=\"codes\"></div><input class=\"removeVar\" type=\"button\" value=\"Remove this variable\"></div>");
 	countDict["var"+count]=0;
 	count++;
 }
@@ -251,7 +251,6 @@ $("#do").on("click", function(){
 						tmpRCodes += "NA"+rightHalfR+"</div><div>})</div>";
 					}
 				}
-
 				if(outputStata){
 					if(i===0){
 						tmpStataCodes += "<div>* Construct Variable "+cVar+"</div><div>gen "+cVar+"=";
@@ -392,4 +391,25 @@ $("#do").on("click", function(){
 		spssCodes += tmpSPSSCodes+tmpSPSSFormat;
 	});
 	$("#outputCode").append(sasCodes+sasProcFormat+rCodes+stataCodes+spssCodes);
+});
+
+function readmeHover1(e){
+  $(e).css({"cursor": "pointer", "text-decoration": "underline"});
+}
+function readmeHover2(e){
+  $(e).css({"cursor": "default", "text-decoration": "initial"});
+}
+$("#readme").css("font-weight", "bold").hover(function(){
+  readmeHover1(this);
+}, function(){
+  readmeHover2(this);
+}).on("click", function(){
+  $("#readmeField").show(618);
+});
+$("#hideme").css("font-weight", "bold").hover(function(){
+  readmeHover1(this);
+}, function(){
+  readmeHover2(this);
+}).on("click", function(){
+  $("#readmeField").hide(618);
 });

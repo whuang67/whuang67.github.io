@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>AutoCoder</title>
 	<style type="text/css">
 body, input, select {
 	font-family: monospace;
 }
-.varChunk {
-	background-color: rgba(225, 225, 234, 0.8);
+.varChunk, .readmeChunk {
 	margin-top: 5px;
 	padding: 10px 20px;
 	border-radius: 10px;
 }
+.varChunk {
+  background-color: rgba(225, 225, 234, 0.8);
+}
+.readmeChunk {
+  background-color: rgba(225, 225, 234, 0.6);
+}
 .outChunk {
-	background-color: rgb(19, 41, 75);
-	color: rgb(232,74,39);
+	background-color: rgba(19, 41, 75, 0.8);
+	color: rgba(232, 74, 39, 0.8);
 	font-size: 20px;
 	margin-top: 5px;
 	padding: 10px 20px;
@@ -39,11 +47,50 @@ input[type="button"]:disabled{
 	/*color: rgb(84, 84, 84);*/
 	cursor: default;
 }
+em {
+   text-decoration: underline;
+}
 	</style>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
 </head>
 <body style="padding: 0 18.1%;">
-	<div><div style="font-size: 2em;">AutoCoder</div><div>This is a tool that can help construct simple variables automatically created by <a href="index.html">Wenke Huang</a>, Statistician at the University of California, Los Angeles. SAS, R, Stata and SPSS are currently available. <span style="font-weight: bold;">README</span> for more information.</div></div>
+	<div style="margin-bottom: 5px;">
+	  <div style="font-size: 2em;">AutoCoder</div>
+	  <div>This is a tool that can automatically construct simple variables and assign formats to them created by <a href="index.html">Wenke Huang</a>, Statistician at the University of California, Los Angeles. SAS, R, Stata and SPSS are currently available.</div>
+	  <div>Click <span id="readme">README</span> for more information.</div>
+	  <div style="display: none;" id="readmeField">
+	    <ul class="readmeChunk">
+	      <b>Collapse</b>&nbsp;(input: <b>categorical</b>, output: <b>categorical</b>)
+	      <li>Collapse is for combining several original levels of input variable into new levels</li>
+	      <li>The levels that you would like to combine should be seperated by semicolons ";". Click <em>Add another level</em> to add one more level. The levels of input variables that are not included will be missing in the corresponding new variables</li>
+	      <li>For descrete input variables (integers, etc), please check the top-right checkbox</li>
+	      <li>Format will be provided automatically if missing</li>
+	      <li>If duplicate values are detected, you will not be able to add new levels or generate codes</li>
+	    </ul>
+	    <ul class="readmeChunk">
+	      <b>Categorize</b>&nbsp;(input: <b>continuous</b>, output: <b>categorical</b>)
+	      <li>Categorize is for converting continuous variables into categorical ones</li>
+	      <li>Please select the lower and upper boundaries of the your categories. <em>Right-open</em> intervals are used here. The min value of only the first level only can be missing, and so can the max value of the last level if there are more than one levels</li>
+	      <li>Same as Collapse, format will be provided automatically if missing</li>
+	      <li>Input values must be monotonically increasing, or you will not be able to add new levels or generate codes</li>
+	    </ul>
+	    <ul class="readmeChunk">
+	      <b>Up/Bottom Code</b>&nbsp;(input: <b>continuous</b>, output: <b>continuous</b>)
+	      <li>Up/Bottom Code is for relimiting the range of continuous variables</li>
+	      <li>Please select the lower and upper range of the variable. The values less than the lower bound will be converted to the lower bound while the values greater than the upper bound will be the upper bound. </li>
+	      <li>Unlike Collapse or Categorize, formats will be provided automatically and only for SAS</li>
+	      <li>Input values must be monotonically increasing if not missing, and they cannot be missing together</li>
+	    </ul>
+	    <ul class="readmeChunk">
+	      <b>General</b>
+	      <li>You can remove a variable but the last one any time you would like</li>
+	      <li>Don't forget to choose the languages that you prefer, Python (Numpy and TensorFlow) will be available soon</li>
+	      <li>When ready, please feel free to click <em>Generate Codes!</em>. Fields will turn gray once you submit successfully</li>
+	      <li>The purpose of this tool is a reference for people who may not be very good at coding</li>
+	    </ul>
+	    <div>Click <span id="hideme">HERE</span> to hide README</div>
+	  </div>
+	</div>
 	<input id="addVar" type="button" value="Add another variable">
 	<div id="field"></div>
 	<div id="choices"><div>Languages:</div></div>
