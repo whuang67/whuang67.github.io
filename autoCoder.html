@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>AutoCoder</title>
+	<style type="text/css">
+body, input, select {
+	font-family: monospace;
+}
+.varChunk {
+	background-color: rgba(225, 225, 234, 0.8);
+	margin-top: 5px;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+.outChunk {
+	background-color: rgb(19, 41, 75);
+	color: rgb(232,74,39);
+	font-size: 20px;
+	margin-top: 5px;
+	padding: 10px 20px;
+	border-radius: 10px;
+}
+input[type="button"] {
+	background-color: rgba(19, 41, 75, 0.7);
+	/*border: none;*/
+	color: white;
+	padding: 2px 3px;
+	margin-top: 2px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+}
+input[type="button"]:hover {
+	cursor: pointer;
+	background-color: rgb(19, 41, 75);
+}
+input[type="button"]:disabled{
+	background-color: rgba(19, 41, 75, 0.5);
+	/*color: rgb(84, 84, 84);*/
+	cursor: default;
+}
+	</style>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+</head>
+<body style="padding: 0 18.1%;">
+	<div><div style="font-size: 2em;">AutoCoder</div><div>This is a tool that can help construct simple variables automatically created by <a href="index.html">Wenke Huang</a>, Statistician at the University of California, Los Angeles. SAS, R, Stata and SPSS are currently available. <span style="font-weight: bold;">README</span> for more information.</div></div>
+	<input id="addVar" type="button" value="Add another variable">
+	<div id="field"></div>
+	<div id="choices"><div>Languages:</div></div>
+	<input id="do" type="button" value="Generate Codes!">
+	<div id="outputCode"></div>
+	<script type="text/javascript" src="js/autoCoder.js"></script>
+</body>
+</html>
