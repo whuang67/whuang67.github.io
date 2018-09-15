@@ -29,8 +29,7 @@ function swapDict(d){
 $("a").attr("target", "_blank");
 
 // There seems to be some bad/unnecessary escaping, which are useful for later regex use.
-const replaceMap = {" AT ":"@", " DOT ":"\."},
-      reverseReplaceMap = swapDict(replaceMap);
+const replaceMap = {" AT ":"@", " DOT ":"\."},reverseReplaceMap = swapDict(replaceMap);
 
 $("#email").hover(function(){
 	mouseOver2($(this));

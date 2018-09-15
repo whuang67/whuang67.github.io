@@ -1,7 +1,8 @@
+console.log("This tool is FREE and comes with ABSOLUTELY NO WARRANTY.");
 var count=0, countDict={};
-const languages = {"SAS": "Good choice!", "R": "Good choice!", "Py-Numpy": "Python Numpy", "Py-TF": "Python TensorFlow", "Stata": "I highly recommend R, Python or SAS instead!", "SPSS": "Good luck!"};
+const languages = {"SAS": "Good choice!", "R": "Good choice!", "Python": "Python 3.x", "Stata": "I highly recommend R, Python or SAS instead!", "SPSS": "Good luck!"};
 function addVar(){
-	$("#field").append("<div id=\"var"+count+"\" class=\"varChunk\"><select class=\"selected\"><option disabled selected> -- Select an option -- </option><option value=\"A\">Collapse</option><option value=\"B\">Categorize</option><option value=\"C\">Up/Bottom Code</option></select><div class=\"codes\"></div><input class=\"removeVar\" type=\"button\" value=\"Remove this variable\"></div>");
+	$("<div id=\"var"+count+"\" class=\"varChunk\"><select class=\"selected\"><option disabled selected> -- Select an option -- </option><option value=\"A\">Collapse</option><option value=\"B\">Categorize</option><option value=\"C\">Up/Bottom Code</option></select><div class=\"codes\"></div><input class=\"removeVar\" type=\"button\" value=\"Remove this variable\"></div>").hide().appendTo("#field").show(618);
 	countDict["var"+count]=0;
 	count++;
 }
@@ -29,7 +30,7 @@ function checkA(tmpVarCnt, tmpCnt){
 function checkB(tmpVarCnt, tmpCnt){
 	for(var i=0; i<=tmpCnt; i++){
 		const minVal=$("#min"+tmpVarCnt+"-"+i).val(), maxVal=$("#max"+tmpVarCnt+"-"+i).val();
-		if((i===0 && maxVal==="") || (i>=1 && (minVal==="" || maxVal==="")) || (minVal!=="" && maxVal!=="" && Number(minVal)>Number(maxVal))){
+		if((i===0 && maxVal==="") || (i>=1 && (minVal==="" || maxVal==="")) || (minVal!=="" && maxVal!=="" && Number(minVal)>=Number(maxVal))){
 			return true;
 		}
 	}
@@ -39,7 +40,9 @@ function checkB2(varId){
 	const tmpVarCnt=varId.replace("var", ""), tmpCnt=countDict[varId];
 	for(var i=0;i<=tmpCnt;i++){
 		const minVal=$("#min"+tmpVarCnt+"-"+i).val(), maxVal=$("#max"+tmpVarCnt+"-"+i).val();
-		if((i===0 && minVal!=="" && Number(minVal)>Number(maxVal)) || (i>=1 && i<tmpCnt && Number(minVal)>Number(maxVal)) || (i===tmpCnt && maxVal!=="" && Number(minVal)>Number(maxVal))){
+		if((i===0 && maxVal==="") || (i!==0 && i===tmpCnt && minVal==="") || (i>0 && i<tmpCnt && (minVal==="" || maxVal==="")) || (minVal!=="" && maxVal!=="" && Number(minVal)>=Number(maxVal))){
+		//if((i===0 && minVal!=="" && Number(minVal)>Number(maxVal)) || (i>=1 && i<tmpCnt && Number(minVal)>Number(maxVal)) || (i===tmpCnt && maxVal!=="" && Number(minVal)>Number(maxVal))){
+		//if((minVal!=="" && maxVal!=="" && Number(maxVal)<=Number(minVal)) || (minVal=="" && maxVal==="") || (i!==0 && minVal==="") || (i!==tmpCnt && maxVal==="") || (i>0 && i<tmpCnt && (minVal==="" || maxVal===""))){
 			return true;
 		}
 	}
@@ -49,9 +52,6 @@ function checkB2(varId){
 addVar();
 Object.keys(languages).forEach(function(e){
 	$("#choices").append(e+":<input type=\"checkbox\" id=\"choose"+e+"\" title=\""+languages[e]+"\">&nbsp;");
-	if(e==="Py-Numpy"||e==="Py-TF"){
-		$("#choose"+e).attr("disabled", "disabled");
-	}
 });
 
 $("#addVar").on("click", addVar);
@@ -63,7 +63,7 @@ $("div#field").on("change", ".selected", function(){
 		"B": "<div><div><strong>Level 1:</strong> min: <input id=\"min"+tmpVarCnt+"-0\" type=\"number\" class=\"minInput\"> max: <input id=\"max"+tmpVarCnt+"-0\" type=\"number\" class=\"maxInput\"> Format: <input id=\"format"+tmpVarCnt+"-0\" type=\"text\" class=\"formatInput\"></div></div><input class=\"addLevelB\" type=\"button\" value=\"Add another level\">",
 		"C": "<div><div> Lower Bound: <input type=\"number\" id=\"lower"+tmpVarCnt+"\" class=\"lowerInput\"> Upper Bound: <input type=\"number\" id=\"upper"+tmpVarCnt+"\" class=\"upperInput\"></div></div>"
 	};
-	$(this).siblings("div.codes").html("<div>Input Variable: <input type=\"text\" class=\"inpVar\" value=\"input_"+whichOne+"\"> New Variable: <input type=\"text\" class=\"cVar\" value=\"new_"+whichOne+"\">"+selectDict[$(this).children("option:selected").val()]+"</div>");
+	$(this).siblings("div.codes").html("<div>Input Variable: <input type=\"text\" class=\"inpVar\" value=\"input_"+whichOne+"\"> New Variable: <input type=\"text\" class=\"cVar\" value=\"new_"+whichOne+"\">"+selectDict[$(this).children("option:selected").val()]+"</div>").hide().show(618);
 	countDict[whichOne]=0;
 }).on("click", ".addLevelA", function(){
 	const whichOne = $(this).parent().parent().parent().attr("id"), tmpCnt = countDict[whichOne], tmpVarCnt = Number(whichOne.replace("var", ""));
@@ -71,7 +71,7 @@ $("div#field").on("change", ".selected", function(){
 		alert("Invalid input!");
 		return;
 	}
-	$(this).siblings("div").append("<div><strong>Level "+(tmpCnt+2)+":</strong> combined levels: <input id=\"collapse"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"collapseInput\"> Format: <input id=\"format"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"formatInput\"></div>");
+	$("<div><strong>Level "+(tmpCnt+2)+":</strong> combined levels: <input id=\"collapse"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"collapseInput\"> Format: <input id=\"format"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"formatInput\"></div>").hide().appendTo($(this).siblings("div")).show(618);
 	countDict[whichOne]++;
 }).on("click", ".addLevelB", function(){
 	const whichOne = $(this).parent().parent().parent().attr("id"), tmpCnt = countDict[whichOne], tmpVarCnt = Number(whichOne.replace("var", ""));
@@ -80,7 +80,7 @@ $("div#field").on("change", ".selected", function(){
 		return;
 	}
 	const lastMax=$("#max"+tmpVarCnt+"-"+tmpCnt).val();
-	$(this).siblings("div").append("<div><strong>Level "+(tmpCnt+2)+":</strong> min: <input id=\"min"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"number\" value="+lastMax+" class=\"minInput\"> max: <input id=\"max"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"number\" class=\"maxInput\"> Format: <input id=\"format"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"formatInput\"></div>");
+	$("<div><strong>Level "+(tmpCnt+2)+":</strong> min: <input id=\"min"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"number\" value="+lastMax+" class=\"minInput\"> max: <input id=\"max"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"number\" class=\"maxInput\"> Format: <input id=\"format"+tmpVarCnt+"-"+(tmpCnt+1)+"\" type=\"text\" class=\"formatInput\"></div>").hide().appendTo($(this).siblings("div")).show(618);
 	countDict[whichOne]++;
 }).on("click", ".removeVar", function(){
 	if(Object.keys(countDict).length<=1){
@@ -89,16 +89,16 @@ $("div#field").on("change", ".selected", function(){
 	}
 	const whichOne = $(this).parent().attr("id");
 	delete countDict[whichOne];
-	$(this).parent().remove();
+	$(this).parent().hide(618, function(){$(this).remove();});
 });
 
 $("#do").on("click", function(){
 	$("#outputCode").children().remove();
-	const outputSAS=$("#chooseSAS").prop("checked"), outputR=$("#chooseR").prop("checked"), outputStata=$("#chooseStata").prop("checked"), outputSPSS=$("#chooseSPSS").prop("checked");
-	var sasCodes = outputSAS?"<div class=\"outChunk\">SAS</div>":"", sasProcFormat = "", rCodes = outputR?"<div class=\"outChunk\">R</div>":"", stataCodes = outputStata?"<div class=\"outChunk\">Stata</div>":"", spssCodes = outputSPSS?"<div class=\"outChunk\">SPSS</div>":"";
+	const outputSAS=$("#chooseSAS").prop("checked"), outputR=$("#chooseR").prop("checked"), outputPython=$("#choosePython").prop("checked"), outputStata=$("#chooseStata").prop("checked"), outputSPSS=$("#chooseSPSS").prop("checked");
+	var sasCodes = outputSAS?"<div class=\"outChunk\">SAS</div>":"", sasProcFormat = "", rCodes = outputR?"<div class=\"outChunk\">R</div>":"", pythonCodes = outputPython?"<div class=\"outChunk\">Python</div>":"", stataCodes = outputStata?"<div class=\"outChunk\">Stata</div>":"", spssCodes = outputSPSS?"<div class=\"outChunk\">SPSS</div>":"";
 	Object.keys(countDict).forEach(function(element){
 		const inpVar = $("#"+element).find(".inpVar").val(), cVar = $("#"+element).find(".cVar").val(), whichOne=$("#"+element).find("option:selected").val();
-		var rightHalfR="", rightHalfStata="", tmpSASCodes="", tmpSASProcFormat="", tmpRCodes="", tmpStataCodes="", tmpStataFormat="", tmpSPSSCodes="", tmpSPSSFormat="";
+		var rightHalfR="", rightHalfStata="", tmpSASCodes="", tmpSASProcFormat="", tmpRCodes="", tmpPythonCodes="", tmpStataCodes="", tmpStataFormat="", tmpSPSSCodes="", tmpSPSSFormat="";
 		if (whichOne==="A"){
 			if(checkA(element.replace("var", ""), countDict[element])){
 				$("#"+element).find(".inpVar, .cVar").css("color", "red");
@@ -136,6 +136,16 @@ $("#do").on("click", function(){
 					if(i===Number(countDict[element])){
 						//rCodes += "x"+rightHalfR+"</div><div>})</div>";
 						tmpRCodes += "NA"+rightHalfR+"</div><div>})</div>";
+					}
+				}
+				if(outputPython){
+					if(i===0){
+						tmpPythonCodes += "<div># Construct Variable "+cVar+"</div><div>def construct_"+cVar+"(x):</div><div>&nbsp;&nbsp;&nbsp;&nbsp;if x in ["+collapseVal.join(", ")+"]:</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";
+					} else{
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;elif x in ["+collapseVal.join(", ")+"]:</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";
+					}
+					if(i===Number(countDict[element])){
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;return float(\"NaN\")</div><div>"+cVar+"=[construct_"+cVar+"(e) for e in "+inpVar+"]</div>";
 					}
 				}
 				if(outputStata){
@@ -205,13 +215,13 @@ $("#do").on("click", function(){
 						tmpSASProcFormat += "<div>/* FORMAT OF "+cVar+" */</div><div>VALUE "+cVar+"F</div>";
 						tmpSASCodes += "<div>/* Construct Variable "+cVar+" */</div>";
 						if(minVal===""){
-							if(maxVal===""){
-								tmpSASProcFormat="";
-								tmpSASCodes="";
-								return false;
-							} else{
-								tmpSASCodes += "<div>IF "+inpVar+" LT "+maxVal+" THEN "+cVar+"="+(i+1)+";</div>";
-							}
+							//if(maxVal===""){
+							//	tmpSASProcFormat="";
+							//	tmpSASCodes="";
+							//	return false;
+							//} else{
+							tmpSASCodes += "<div>IF "+inpVar+" LT "+maxVal+" THEN "+cVar+"="+(i+1)+";</div>";
+							//}
 						} else{
 							tmpSASCodes += "<div>IF "+minVal+" LE "+inpVar+" LT "+maxVal+" THEN "+cVar+"="+(i+1)+";</div>";
 						}
@@ -232,12 +242,12 @@ $("#do").on("click", function(){
 					if(i===0){
 						tmpRCodes += "<div># Construct Variable "+cVar+"</div><div>"+cVar+"=sapply("+inpVar+", function(x){</div>";
 						if(minVal===""){
-							if(maxVal===""){
-								tmpRCodes="";
-								return false;
-							} else{
-								tmpRCodes += "<div>&nbsp;&nbsp;ifelse(x<"+maxVal+", "+(i+1)+", ";
-							}
+							//if(maxVal===""){
+							//	tmpRCodes="";
+							//	return false;
+							//} else{
+							tmpRCodes += "<div>&nbsp;&nbsp;ifelse(x<"+maxVal+", "+(i+1)+", ";
+							//}
 						} else {
 							tmpRCodes += "<div>&nbsp;&nbsp;ifelse(x>="+minVal+" & x<"+maxVal+", "+(i+1)+", ";
 						}
@@ -251,18 +261,40 @@ $("#do").on("click", function(){
 						tmpRCodes += "NA"+rightHalfR+"</div><div>})</div>";
 					}
 				}
+				if(outputPython){
+					if(i===0){
+						tmpPythonCodes += "<div># Construct Variable "+cVar+"</div><div>def construct_"+cVar+"(x):</div>";
+						if(minVal===""){
+							//if(maxVal===""){
+							//	tmpPythonCodes="";
+							//	return false;
+							//} else{
+							tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;if x<"+maxVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";							
+							//}
+						} else{
+							tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;if "+minVal+"<=x<"+maxVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";
+						}
+					} else if(i===Number(countDict[element]) && maxVal===""){
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;elif x>="+minVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";
+					} else{
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;elif "+minVal+"<=x<"+maxVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+(i+1)+"</div>";
+					}
+					if(i===Number(countDict[element])){
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;return float(\"NaN\")</div><div>"+cVar+"=[construct_"+cVar+"(e) for e in "+inpVar+"]</div>";
+					}
+				}
 				if(outputStata){
 					if(i===0){
 						tmpStataCodes += "<div>* Construct Variable "+cVar+"</div><div>gen "+cVar+"=";
 						tmpStataFormat += "<div>label define"+cVar+"f";
 						if(minVal===""){
-							if(maxVal===""){
-								tmpStataCodes="";
-								tmpStataFormat="";
-								return false;
-							} else{
-								tmpStataCodes += "cond("+inpVar+"<"+maxVal;
-							}
+							//if(maxVal===""){
+							//	tmpStataCodes="";
+							//	tmpStataFormat="";
+							//	return false;
+							//} else{
+							tmpStataCodes += "cond("+inpVar+"<"+maxVal;
+							//}
 						} else{
 							tmpStataCodes += "cond("+inpVar+">="+minVal+" & "+inpVar+"<"+maxVal;
 						}
@@ -286,13 +318,13 @@ $("#do").on("click", function(){
 						tmpSPSSCodes += "<div>* Construct Variable"+cVar+"</div><div>compute "+cVar+" = 0.</div>";
 						tmpSPSSFormat += "<div>value labels</div><div>"+cVar;
 						if(minVal===""){
-							if(maxVal===""){
-								tmpSPSSCodes="";
-								tmpSPSSFormat="";
-								return false;
-							} else{
-								tmpSPSSCodes += "<div>if "+inpVar+" lt "+maxVal+" "+cVar+" = "+(i+1)+".</div>";
-							}
+							//if(maxVal===""){
+							//	tmpSPSSCodes="";
+							//	tmpSPSSFormat="";
+							//	return false;
+							//} else{
+							tmpSPSSCodes += "<div>if "+inpVar+" lt "+maxVal+" "+cVar+" = "+(i+1)+".</div>";
+							//}
 						} else{
 							tmpSPSSCodes += "<div>if "+inpVar+" ge "+minVal+" and "+inpVar+" lt "+maxVal+" "+cVar+" = "+(i+1)+".</div>";
 						}
@@ -356,6 +388,20 @@ $("#do").on("click", function(){
 					}
 				}
 			}
+			if(outputPython){
+				tmpPythonCodes += tmpPythonCodes += "<div># Construct Variable "+cVar+"</div><div>def construct_"+cVar+"(x):</div>";
+				if(lowerVal!==""){
+					tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;if x<"+lowerVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+lowerVal+"</div>";
+					if(upperVal!==""){
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;elif x>"+upperVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+upperVal+"</div>";
+					}
+				} else{
+					if(upperVal!==""){
+						tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;if x>"+upperVal+":</div><div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return "+upperVal+"</div>";
+					}
+				}
+				tmpPythonCodes += "<div>&nbsp;&nbsp;&nbsp;&nbsp;return x</div><div>"+cVar+"=[construct_"+cVar+"(e) for e in "+inpVar+"]</div>";
+			}
 			if(outputStata){
 				tmpStataCodes += "<div>* Construct Variable "+cVar+"</div><div>gen "+cVar+"=";
 				tmpStataFormat += "* No format for Stata continuous variable "+cVar;
@@ -387,29 +433,25 @@ $("#do").on("click", function(){
 		sasCodes += tmpSASCodes;
 		sasProcFormat += tmpSASProcFormat;
 		rCodes += tmpRCodes;
+		pythonCodes += tmpPythonCodes;
 		stataCodes += tmpStataCodes+tmpStataFormat;
 		spssCodes += tmpSPSSCodes+tmpSPSSFormat;
 	});
-	$("#outputCode").append(sasCodes+sasProcFormat+rCodes+stataCodes+spssCodes);
+	$("#outputCode").append(sasCodes+sasProcFormat+rCodes+pythonCodes+stataCodes+spssCodes).hide().show(618);
 });
-
+console.log("If you are seeing this, you may wonder the reason I included some of these choices. Some researchers I'm working with are not data but social scientists. Actually after seeing the download number of CHIS dummy data, you may start to know why. No offence to anyone or -thing!");
 function readmeHover1(e){
-  $(e).css({"cursor": "pointer", "text-decoration": "underline"});
+	$(e).css({"cursor": "pointer"});
 }
 function readmeHover2(e){
-  $(e).css({"cursor": "default", "text-decoration": "initial"});
+	$(e).css("cursor", "default");
 }
-$("#readme").css("font-weight", "bold").hover(function(){
-  readmeHover1(this);
-}, function(){
-  readmeHover2(this);
-}).on("click", function(){
-  $("#readmeField").show(618);
-});
-$("#hideme").css("font-weight", "bold").hover(function(){
-  readmeHover1(this);
-}, function(){
-  readmeHover2(this);
-}).on("click", function(){
-  $("#readmeField").hide(618);
-});
+$("#readme, #hideme, #email, a").css({"font-weight": "bold", "text-decoration": "underline", "color": "rgb(19, 41, 75)"}).hover(function(){readmeHover1(this);}, function(){readmeHover2(this);});
+$("#readme").on("click", function(){
+	$("#readmeField").show(618);
+	$(this).parent().css("display", "none");
+}).parent().css("margin-top", "5px");
+$("#hideme").on("click", function(){
+	$("#readmeField").hide(618);
+	$("#readme").parent().css("display", "initial");
+}).parent().css("margin-top", "5px");

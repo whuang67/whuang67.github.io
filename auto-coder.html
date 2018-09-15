@@ -30,7 +30,6 @@ body, input, select {
 }
 input[type="button"] {
 	background-color: rgba(19, 41, 75, 0.7);
-	/*border: none;*/
 	color: white;
 	padding: 2px 3px;
 	margin-top: 2px;
@@ -44,7 +43,6 @@ input[type="button"]:hover {
 }
 input[type="button"]:disabled{
 	background-color: rgba(19, 41, 75, 0.5);
-	/*color: rgb(84, 84, 84);*/
 	cursor: default;
 }
 em {
@@ -56,9 +54,9 @@ em {
 <body style="padding: 0 18.1%;">
 	<div style="margin-bottom: 5px;">
 	  <div style="font-size: 2em;">AutoCoder</div>
-	  <div>This is a tool that can automatically construct simple variables and assign formats to them created by <a href="index.html">Wenke Huang</a>, Statistician at the University of California, Los Angeles. SAS, R, Stata and SPSS are currently available.</div>
+	  <div>This is a tool that can automatically construct simple variables and assign formats to them created by <a href="index.html">Wenke Huang</a>, Statistician at the University of California, Los Angeles. SAS, R, Python, Stata and SPSS are currently available.</div>
 	  <div>Click <span id="readme">README</span> for more information.</div>
-	  <div style="display: none;" id="readmeField">
+	  <div id="readmeField" style="display: none;">
 	    <ul class="readmeChunk">
 	      <b>Collapse</b>&nbsp;(input: <b>categorical</b>, output: <b>categorical</b>)
 	      <li>Collapse is for combining several original levels of input variable into new levels</li>
@@ -84,11 +82,12 @@ em {
 	    <ul class="readmeChunk">
 	      <b>General</b>
 	      <li>You can remove a variable but the last one any time you would like</li>
-	      <li>Don't forget to choose the languages that you prefer, Python (Numpy and TensorFlow) will be available soon</li>
-	      <li>When ready, please feel free to click <em>Generate Codes!</em>. Fields will turn gray once you submit successfully</li>
-	      <li>The purpose of this tool is a reference for people who may not be very good at coding</li>
+	      <li>Don't forget to choose the languages that you prefer. Formats are NOT available for R or Python</li>
+	      <li>When ready, please click <em>Generate Codes!</em>. Fields will turn gray once you submit successfully</li>
+	      <li>Any questions or error, please contact <span id="email">huangwk223ATgmailDOTcom</span></li>
 	    </ul>
-	    <div>Click <span id="hideme">HERE</span> to hide README</div>
+		<div>This is a simple, partial and insensitive version of CHIS data delivery tool for creating multiple programming codes simultaneously, which can also be a reference for people who are new to some of these languages.</div>
+		<div>Click <span id="hideme">HERE</span> to hide README.</div>
 	  </div>
 	</div>
 	<input id="addVar" type="button" value="Add another variable">
